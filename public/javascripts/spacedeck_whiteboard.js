@@ -61,6 +61,13 @@ function setup_whiteboard_directives() {
 
       var $scope = this.vm.$root;
 
+      //ASTAGOR START
+      var urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.has('guest_nickname')) {
+          $scope.guest_nickname = decodeURI(urlParams.get('guest_nickname'));
+      }
+      //ASTAGOR END
+
       this.space_zoom = 1;
       this.artifacts_before_transaction = [];
       $scope.active_tool = "pointer";
