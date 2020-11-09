@@ -4,7 +4,7 @@
 
   "host": "127.0.0.1",
   "port": 9666,
-  "endpoint": "https://wb.vwa-lueneburg.videorooms.de",
+  "endpoint": "https://wb.vwa-lueneburg.video-rooms.de",
   "invite_code": "ygdmJTdCSTKFT5D3",
 
   "storage_local_path": "./storage",
@@ -18,7 +18,7 @@
   "redis_mock": true,
   "redis_host": "localhost",
 
-  "phantom_api_secret": "very_secret_phantom_password",
+  "phantom_api_secret": "A9K6Sx8YhqwFHnjn",
 
   "mail_provider": "smtp",
   "mail_smtp_host": "your.smtp.host",
