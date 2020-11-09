@@ -7,6 +7,9 @@ npm install
 
 edit config/default.json
 
+chmod +x spacedeck.js
+
+
 cp spacedeck.service /etc/systemd/system/spacedeck.service
 nano /etc/systemd/system/spacedeck.service
 systemctl daemon-reload
