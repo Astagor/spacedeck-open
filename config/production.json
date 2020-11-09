@@ -18,7 +18,7 @@
   "redis_mock": true,
   "redis_host": "localhost",
 
-  "phantom_api_secret": "VCe68qaWkX73VHTp",
+  "phantom_api_secret": "very_secret_phantom_password",
 
   "mail_provider": "smtp",
   "mail_smtp_host": "your.smtp.host",
