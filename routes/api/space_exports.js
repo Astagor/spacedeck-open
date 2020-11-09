@@ -48,8 +48,7 @@ router.get('/png', function(req, res, next) {
   var triggered = new Date();
   var s3_filename = "s" + req.space._id + "/" + "thumb_" + triggered.getTime() + ".jpg";
 
-//ASTAGOR set to false to phantom js
-  if (false && (!req.space.thumbnail_updated_at || req.space.thumbnail_updated_at < req.space.updated_at || !req.space.thumbnail_url)) {
+  if (!req.space.thumbnail_updated_at || req.space.thumbnail_updated_at < req.space.updated_at || !req.space.thumbnail_url) {
     db.Space.update({ thumbnail_updated_at: triggered }, {where : {"_id": req.space._id }});
     
     phantom.takeScreenshot(req.space, "png", function(local_path) {
