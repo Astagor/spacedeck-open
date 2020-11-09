@@ -1,0 +1,18 @@
+[Unit]
+Description=Spacedeck Whiteboard
+After=network.target
+
+[Service]
+ExecStart=/var/www/servers/spacedeck-open/spacedeck.js
+Restart=always
+Environment=PATH=/usr/bin:/usr/local/bin
+Environment=NODE_ENV=development
+Environment=DEBUG="*ERROR*,*WARN*,*INFO*"
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=spacedeck
+WorkingDirectory=/var/www/servers/spacedeck-open
+AmbientCapabilities=CAP_NET_BIND_SERVICE
+
+[Install]
+WantedBy=multi-user.target
