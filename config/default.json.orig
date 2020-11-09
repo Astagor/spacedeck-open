@@ -1,11 +1,11 @@
 {
-  "team_name":"vwa-lueneburg",
-  "contact_email": "support@ironrobots.com",
+  "team_name": "My Open Spacedeck",
+  "contact_email": "support@example.org",
 
-  "host": "127.0.0.1",
+  "host": "::",
   "port": 9666,
-  "endpoint": "https://wb.vwa-lueneburg.videorooms.de",
-  "invite_code": "ygdmJTdCSTKFT5D3",
+  "endpoint": "http://localhost:9666",
+  "invite_code": "top-sekrit",
 
   "storage_local_path": "./storage",
   "storage_local_db": "./database.sqlite",
@@ -18,7 +18,7 @@
   "redis_mock": true,
   "redis_host": "localhost",
 
-  "phantom_api_secret": "4sqwdCyJfErW4kUV",
+  "phantom_api_secret": "very_secret_phantom_password",
 
   "mail_provider": "smtp",
   "mail_smtp_host": "your.smtp.host",
