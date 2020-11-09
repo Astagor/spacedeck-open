@@ -43,7 +43,8 @@ i18n.expressBind(app, {
 
 app.set('view engine', 'ejs');
 
-if (isProduction) {
+//ASTAGOR do NOT use BUILD
+if (false && isProduction) {
   app.set('views', path.join(__dirname, 'build', 'views'));
   app.use(favicon(path.join(__dirname, 'build', 'assets', 'images', 'favicon.png')));
   app.use(express.static(path.join(__dirname, 'build', 'assets')));
