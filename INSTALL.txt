@@ -1,0 +1,27 @@
+git clone https://github.com/Astagor/spacedeck-open.git
+
+apt install graphicsmagick
+apt install ffmpeg
+
+npm install
+
+edit config/default.json
+
+cp spacedeck.service /etc/systemd/system/spacedeck.service
+nano /etc/systemd/system/spacedeck.service
+systemctl daemon-reload
+systemctl restart spacedeck.service
+
+register
+support@ironrobots.com
+TDpUrQJ6FLn5fUtW
+
+create spaces
+name spaces
+
+generate URLs for edumeet wertc_configs:
+	iframe_urls : {
+			'test11': 'https://wb.corona2.medvc.eu/spaces/2a442b1a-21c6-483d-b617-56c2925860cc?spaceAuth=11e37eb&embedded=1'
+	},
+	
+	

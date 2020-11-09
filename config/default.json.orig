@@ -1,0 +1,30 @@
+{
+  "team_name":"vwa-lueneburg",
+  "contact_email": "support@ironrobots.com",
+
+  "host": "127.0.0.1",
+  "port": 9666,
+  "endpoint": "https://wb.vwa-lueneburg.videorooms.de",
+  "invite_code": "ygdmJTdCSTKFT5D3",
+
+  "storage_local_path": "./storage",
+  "storage_local_db": "./database.sqlite",
+  "storage_region": "eu-central-1",
+  "storage_endpoint": "http://localhost:4572",
+  "storage_bucket": "my_spacedeck_bucket",
+  "storage_cdn": "/storage",
+
+  "mongodb_host": "localhost",
+  "redis_mock": true,
+  "redis_host": "localhost",
+
+  "phantom_api_secret": "4sqwdCyJfErW4kUV",
+
+  "mail_provider": "smtp",
+  "mail_smtp_host": "your.smtp.host",
+  "mail_smtp_port": 465,
+  "mail_smtp_secure": true,
+  "mail_smtp_require_tls": true,
+  "mail_smtp_user": "your.smtp.user",
+  "mail_smtp_pass": "your.secret.smtp.password"
+}
