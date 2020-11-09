@@ -19,6 +19,8 @@ register
 support@ironrobots.com
 TDpUrQJ6FLn5fUtW
 
+"invite_code": "ygdmJTdCSTKFT5D3",
+
 create spaces
 name spaces
 
