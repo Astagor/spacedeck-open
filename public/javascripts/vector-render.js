@@ -21,6 +21,14 @@ function vec2_angle(v) {
 }
 
 function render_vector_drawing(a, padding) {
+
+	// ASTAGOR HACK model, should be object, but is string
+	if(typeof a.control_points == 'string')
+	{
+		a.control_points = eval(a.control_points);
+	}
+	// ASTAGOR END
+
   var shape = a.shape || "";
   var path = [];
   var p = a.control_points[0];
