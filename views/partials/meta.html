@@ -14,7 +14,8 @@
       </small>
     </div-->
 
-    <div v-if="!logged_in && guest_nickname">
+	<!-- ASTAGOR -->
+    <!--div v-if="!logged_in && guest_nickname">
       <button class="btn btn-sm btn-round btn-primary m-r-5"
        v-on:click=" ask_guestname(guest_nickname);">
         {{guest_nickname}}
@@ -24,7 +25,7 @@
         <%=__("logout")%>
       </button>
     </div>
-  </div>
+  </div-->
 
   <div class="sidebar-section">
     <h5><%=__("chat")%> &nbsp; <a v-if="active_space_role!='viewer'" v-on:click="activate_access()" class="btn btn-xs btn-darken">Add People</a></h5>
