@@ -309,7 +309,9 @@ var SpacedeckSpaces = {
       }
 
       if (!this.user.nickname && space_auth) {
-        this.guest_nickname = get_query_param("nickname") || this.guest_nickname;
+        // ASTAGOR
+        //this.guest_nickname = get_query_param("nickname") || this.guest_nickname;
+        this.guest_nickname = get_query_param("nickname") || get_query_param("guest_nickname") || this.guest_nickname;
         if (this.guest_nickname) {
           userReady();
         } else {
