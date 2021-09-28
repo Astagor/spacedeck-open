@@ -8,6 +8,8 @@ var SpacedeckSections = {
   data: {
     MAX_COLUMNS: 20,
 
+    isShift: false,
+
     redo_stack: [],
     undo_stack: [],
 
@@ -62,15 +64,15 @@ var SpacedeckSections = {
 
     active_style: {
       border_radius: 0,
-      stroke: 0,
+      stroke: 2,
       font_family: "Inter",
       font_size: 36,
       line_height: 1.5,
       letter_spacing: 0,
 
-      stroke_color: "#000000",
-      fill_color: "#00000000",
-      text_color: "#000000",
+      stroke_color: ENV.options.default_stroke_color ? ENV.options.default_stroke_color : "#000000",
+      fill_color: ENV.options.default_fill_color ? ENV.options.default_fill_color : "#000000",
+      text_color: ENV.options.default_text_color ? ENV.options.default_text_color : "#000000",
       background_color: "#ffffff",
 
       padding: 0,
@@ -109,7 +111,7 @@ var SpacedeckSections = {
     color_picker_hue: 127,
     color_picker_opacity: 255,
 
-    swatches: [
+    swatches: ENV.options.swatches ? ENV.options.swatches : [
       {id:1, hex:"#ff00ff"},
       {id:2, hex:"#ffff00"},
       {id:3, hex:"#00ffff"},
@@ -133,18 +135,7 @@ var SpacedeckSections = {
       {id:26, hex:"#d55c4b"},
       {id:27, hex:"#6f4021"},
       {id:29, hex:"#95a5a6"},
-      {id:30, hex:"rgba(0,0,0,0)"},
-    ],
-
-    swatches_text: [
-      {id:1, hex:"#9b59b6"},
-      {id:2, hex:"#3498db"},
-      {id:3, hex:"#2ecc71"},
-      {id:4, hex:"#f1c40f"},
-      {id:5, hex:"#e67e22"},
-      {id:6, hex:"#d55c4b"},
-      {id:8, hex:"#ffffff"},
-      {id:10, hex:"#252525"},
+      {id:30, hex:"rgba(0,0,0,0)"}
     ],
 
     fonts: [
@@ -217,7 +208,9 @@ var SpacedeckSections = {
       Mousetrap.bind('shift+left', function(evt)      { this.if_editable(function() {this.nudge_selected_artifacts(-10,0,evt);}) }.bind(this));
       Mousetrap.bind('shift+right', function(evt)     { this.if_editable(function() {this.nudge_selected_artifacts(10,0,evt);}) }.bind(this));
       Mousetrap.bind('space', function(evt)           { this.activate_pan_tool(evt); }.bind(this));
-
+      Mousetrap.bind(['shift'], function(evt)         { this.isShift = true; }.bind(this), 'keydown');
+      Mousetrap.bind(['shift'], function(evt)         { this.isShift = false; }.bind(this), 'keyup');
+      Mousetrap.bind('shift+up', function(evt)        { this.if_editable(function() {this.nudge_selected_artifacts(0,-10,evt);}) }.bind(this));
       $(document).bind("beforecopy", this.handle_onbeforecopy.bind(this));
       $(window).bind("beforeunload", this.handle_onunload.bind(this));
       $(window).bind("resize", this.handle_window_resize.bind(this));
@@ -1367,7 +1360,7 @@ var SpacedeckSections = {
     },
 
     reset_stroke: function() {
-      this.active_style.stroke = 0;
+      this.active_style.stroke = 2;
       this.active_style.border_radius = 0;
       this.active_style.stroke_style = "solid";
     },
@@ -1725,7 +1718,7 @@ var SpacedeckSections = {
         h: h,
         stroke_color: this.active_style.stroke_color,
         text_color: this.active_style.text_color,
-        stroke: 0,
+        stroke: this.active_style.stroke,
         fill_color: this.active_style.fill_color,
         shape: shape_type,
         valign: "middle",
@@ -2303,17 +2296,19 @@ var SpacedeckSections = {
           for (var i=0; i<parsed.length; i++) {
             if (parsed[i].mime) {
               var z = this.highest_z()+1;
-              if (parsed.length==1) {
-                var w = parsed[i].w;
-                var h = parsed[i].h;
-                var point = this.find_place_for_item(w,h);
-                parsed[i].x = point.x;
-                parsed[i].y = point.y;
-                parsed[i].z = point.z;
-              } else {
-                parsed[i].x = parsed[i].x+50;
-                parsed[i].y = parsed[i].y+50;
-                parsed[i].y = parsed[i].z+z;
+              if(!this.isShift) {
+                if (parsed.length==1) {
+                  var w = parsed[i].w;
+                  var h = parsed[i].h;
+                  var point = this.find_place_for_item(w,h);
+                  parsed[i].x = point.x;
+                  parsed[i].y = point.y;
+                  parsed[i].z = point.z;
+                } else {
+                  parsed[i].x = parsed[i].x+100;
+                  parsed[i].y = parsed[i].y+100;
+                  parsed[i].y = parsed[i].z+z;
+                }
               }
               this.clone_artifact(parsed[i], 0,0, function(a) {
                 this.multi_select([a]);

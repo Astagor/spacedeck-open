@@ -31,6 +31,9 @@ function render_vector_drawing(a, padding) {
 
   var shape = a.shape || "";
   var path = [];
+  if(typeof a.control_points == 'string'){
+    a.control_points = JSON.parse(a.control_points);
+  }
   var p = a.control_points[0];
 
   if (!p) return "";
