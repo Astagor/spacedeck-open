@@ -28,7 +28,7 @@ name spaces
 
 generate URLs for edumeet wertc_configs:
 	iframe_urls : {
-			'test11': 'https://wb.corona2.medvc.eu/spaces/2a442b1a-21c6-483d-b617-56c2925860cc?spaceAuth=11e37eb&embedded=1'
+			'test11': 'https://wb3.corona2.medvc.eu/spaces/2a442b1a-21c6-483d-b617-56c2925860cc?spaceAuth=11e37eb&embedded=1'
 	},
 	
 	
