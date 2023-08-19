@@ -3,10 +3,13 @@ git clone https://github.com/Astagor/spacedeck-open.git
 apt install graphicsmagick
 apt install ffmpeg
 apt install ghostscript
+apt install libnss3 libxss1 libasound2 libatk-bridge2.0-0 libgtk-3-0 libgbm-dev
 
 add-apt-repository ppa:chris-needham/ppa
 apt update
 apt install audiowaveform
+
+
 
 npm install
 
