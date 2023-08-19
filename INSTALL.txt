@@ -18,6 +18,7 @@ chmod +x spacedeck.js
 cp spacedeck.service /etc/systemd/system/spacedeck.service
 nano /etc/systemd/system/spacedeck.service
 systemctl daemon-reload
+systemctl enable spacedeck.service
 systemctl restart spacedeck.service
 
 register
