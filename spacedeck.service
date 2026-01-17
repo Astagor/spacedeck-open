@@ -3,7 +3,8 @@ Description=Spacedeck Whiteboard
 After=network.target
 
 [Service]
-ExecStart=/var/www/servers/spacedeck-open/spacedeck.js
+WorkingDirectory=/var/www/servers/spacedeck-open
+ExecStart=/var/www/servers/node22/bin/node spacedeck.js
 Restart=always
 Environment=NODE_ENV=production
 Environment=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin

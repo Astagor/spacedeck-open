@@ -10,6 +10,24 @@ apt update
 apt install audiowaveform
 
 
+Add node 22 , breaks if higher only for this project
+mkdir -p /var/www/servers/node22
+cd /var/www/servers/node22
+
+# download a Node 22 linux x64 binary tarball (adjust if your server is arm64)
+curl -fsSL https://nodejs.org/dist/v22.11.0/node-v22.11.0-linux-x64.tar.xz -o node22.tar.xz
+
+tar -xf node22.tar.xz
+mv node-v22.11.0-linux-x64/* .
+rmdir node-v22.11.0-linux-x64
+rm node22.tar.xz
+
+# verify
+/var/www/servers/node22/bin/node -v
+/var/www/servers/node22/bin/npm -v
+
+
+
 
 npm install
 
